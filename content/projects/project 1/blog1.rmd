@@ -3,16 +3,42 @@ title: "Top 10 Contributing Californian Cities in 2016 Election"
 output: html_document
 ---
 
+```{r, setup, include=FALSE}
+knitr::opts_chunk$set(
+  message = FALSE, 
+  warning = FALSE, 
+  tidy=FALSE,     # display code as typed
+  size="small")   # slightly smaller font for code
+options(digits = 3)
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
+# default figure size
+knitr::opts_chunk$set(
+  fig.width=6.75, 
+  fig.height=6.75,
+  fig.align = "center"
+)
 ```
 
+
+```{r load-libraries, include=FALSE}
+library(tidyverse)  # Load ggplot2, dplyr, and all the other tidyverse packages
+library(mosaic)
+library(ggthemes)
+library(lubridate)
+library(here)
+library(skimr)
+library(janitor)
+library(httr)
+library(readxl)
+library(vroom)
+library(infer)
+```
+```
 
 
 We would like to produce the plot that shows the top ten cities in highest amounts raised in political contributions in California during the 2016 US Presidential election.
 
-To get this plot, we must join two dataframes; the one you have with all contributions, and data that can translate zipcodes to cities. You can find a file with all US zipcodes, e.g., here http://www.uszipcodelist.com/download.html.
+To get this plot, we must join two dataframes; the one you have with all contributions, and data that can translate zipcodes to cities. We can find a file with all US zipcodes, e.g., here http://www.uszipcodelist.com/download.html.
 
 The easiest way would be to create two plots and then place one next to each other. For this, you will need the patchwork package. https://cran.r-project.org/web/packages/patchwork/index.html
 
