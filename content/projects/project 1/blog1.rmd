@@ -1,0 +1,176 @@
+---
+title: "Top 10 Contributing Californian Cities in 2016 Election"
+output: html_document
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+
+We would like to produce the plot that shows the top ten cities in highest amounts raised in political contributions in California during the 2016 US Presidential election.
+
+To get this plot, we must join two dataframes; the one you have with all contributions, and data that can translate zipcodes to cities. You can find a file with all US zipcodes, e.g., here http://www.uszipcodelist.com/download.html.
+
+The easiest way would be to create two plots and then place one next to each other. For this, you will need the patchwork package. https://cran.r-project.org/web/packages/patchwork/index.html
+
+Let's first looks at the data.
+
+```{r load_data}
+CA_contributors_2016 <- vroom::vroom(here::here("data","CA_contributors_2016.csv"))
+glimpse(CA_contributors_2016)
+```
+
+To link zipcode to cities, we need another data source.
+
+```{r load_zip}
+City_zipcode <- vroom::vroom(here::here("data","zip_code_database.csv"))
+glimpse(City_zipcode)
+```
+
+Then we need to join the two dataframes to pair cities and zipcodes, while ignore other unrelevant data.
+
+```{r city_zip}
+City_zip <- City_zipcode %>% 
+  select(zip, primary_city)%>% #only zip and city are relevant in the task
+  mutate(zip=as.double((zip))) #convert zip in City_zipcode into double as zip in CA_contributors_2016 is double
+
+glimpse(City_zip)
+```
+
+Now, we plot the top contributing cities for the top 2 candidates in the election.
+```{r top_2}
+#join the two dataframes
+contributors_cities<-full_join(CA_contributors_2016,City_zip)
+
+#Hillary Clinton's top contributing cities
+top10_HRC <- contributors_cities %>% 
+  filter(cand_nm=="Clinton, Hillary Rodham") %>% 
+  group_by(primary_city) %>% 
+  summarize(amount=sum(contb_receipt_amt)) %>% #sum of amount contributed by each city
+  arrange(desc(amount)) %>% 
+  slice(1:10) #top 10 by amount
+
+#Trump's top contributing cities
+top10_DJT <- contributors_cities %>% 
+  filter(cand_nm=="Trump, Donald J.") %>% 
+  group_by(primary_city) %>% 
+  summarize(amount=sum(contb_receipt_amt)) %>% #sum of amount contributed by each city 
+  arrange(desc(amount)) %>% 
+  slice(1:10) #top 10 by amount
+
+#plot for Hilary Clinton
+p1 <- ggplot(top10_HRC, aes(x=amount, y=reorder(primary_city,amount)))+ #arrange in descending order of amount
+  geom_col(fill='#2E74C0') + #color the series in blue
+  scale_x_continuous(breaks = seq(0, 12000000, by = 4000000),labels = label_comma(prefix = "$"))+ #formatting x-axis (max, min and accounting style)
+  facet_wrap(~"Clinton, Hillary Rodham")+ #adding grey box to candidate name
+  theme_bw() + #black outline and grey grids
+  theme(axis.title.y = element_blank(),axis.title.x = element_blank(),plot.title = element_text(hjust=0.5,size=10))+ #remove axis labels and format title
+NULL
+
+p2 <- ggplot(top10_DJT, aes(x=amount, y=reorder(primary_city,amount))) +#arrange in descending order of amount 
+  geom_col(fill='#CB454A') + #color the series in red
+  scale_x_continuous(breaks = seq(0, 400000, by = 200000),labels = label_comma(prefix = "$") )+ #formatting x-axis (max, min and accounting style)
+  facet_wrap(~"Trump, Donald J.")+ #adding grey box to candidate name
+  theme_bw()+theme(axis.title.y = element_blank(),axis.title.x = element_blank(),plot.title = element_text(hjust=0.5,size=10))+ #remove axis labels and format title
+NULL
+
+
+patch=p1+p2 #put p1 and p2 together
+
+#format joined plot - title on top centered and caption at the bottom centered
+patch+plot_annotation(title="Where did candidates raise most money?", caption ="Amount raised",theme=theme(plot.title=element_text(hjust=0.25,size=13),plot.caption = element_text(hjust=0.5)))
+```
+
+Now, let's find out about the top 10 candidates and present them together.
+
+```{r top_10}
+A <- Top_10_cities %>% 
+    filter(cand_nm=="Bush, Jeb")
+
+B <- Top_10_cities %>% 
+    filter(cand_nm=="Carson, Benjamin S.")
+
+C <- Top_10_cities %>% 
+    filter(cand_nm=="Cruz, Rafael Edward 'Ted'")
+
+D <- Top_10_cities %>% 
+    filter(cand_nm=="Fiorina, Carly")
+
+E<- Top_10_cities %>% 
+    filter(cand_nm=="Paul, Rand")
+
+F <- Top_10_cities %>% 
+    filter(cand_nm=="Rubio, Marco")
+
+G <- Top_10_cities %>% 
+    filter(cand_nm=="Sanders, Bernard")
+
+p3<- ggplot(A, aes(x=raised, y=reorder(primary_city,raised)))+ #arrange in descending order of amount raised
+  geom_col(fill='#C0C0C0')+
+  facet_wrap(~"Bush, Jeb")+
+  scale_x_continuous(labels = label_comma(prefix = "$"))+ #formatting x-axis (max, min and accounting style)
+  theme_bw() + #black outline and grey grids
+  theme(axis.title.y = element_blank(),axis.title.x = element_blank(),plot.title = element_text(hjust=0.5,size=10))+ #remove axis labels and format title
+  NULL
+
+p4<- ggplot(B, aes(x=raised, y=reorder(primary_city,raised)))+ #arrange in descending order of amount raised
+  geom_col(fill='#808080')+
+  facet_wrap(~"Carson, Benjamin S.")+
+  scale_x_continuous(labels = label_comma(prefix = "$"))+ #formatting x-axis (max, min and accounting style)
+  theme_bw() + #black outline and grey grids
+  theme(axis.title.y = element_blank(),axis.title.x = element_blank(),plot.title = element_text(hjust=0.5,size=10))+ #remove axis labels and format title
+  NULL
+
+p5<- ggplot(C, aes(x=raised, y=reorder(primary_city,raised)))+ #arrange in descending order of amount raised
+  geom_col(fill='#800000')+
+  facet_wrap(~"Cruz, Rafael Edward 'Ted'")+
+  scale_x_continuous(labels = label_comma(prefix = "$"))+ #formatting x-axis (max, min and accounting style)
+  theme_bw() + #black outline and grey grids
+  theme(axis.title.y = element_blank(),axis.title.x = element_blank(),plot.title = element_text(hjust=0.5,size=10))+ #remove axis labels and format title
+  NULL
+
+p6<- ggplot(D, aes(x=raised, y=reorder(primary_city,raised)))+ #arrange in descending order of amount raised
+  geom_col(fill='#808000')+
+  facet_wrap(~"Fiorina, Carly")+
+  scale_x_continuous(labels = label_comma(prefix = "$"))+ #formatting x-axis (max, min and accounting style)
+  theme_bw() + #black outline and grey grids
+  theme(axis.title.y = element_blank(),axis.title.x = element_blank(),plot.title = element_text(hjust=0.5,size=10))+ #remove axis labels and format title
+  NULL
+
+p7<- ggplot(E, aes(x=raised, y=reorder(primary_city,raised)))+ #arrange in descending order of amount raised
+  geom_col(fill='#008000')+
+  facet_wrap(~"Paul, Rand")+
+  scale_x_continuous(labels = label_comma(prefix = "$"))+ #formatting x-axis (max, min and accounting style)
+  theme_bw() + #black outline and grey grids
+  theme(axis.title.y = element_blank(),axis.title.x = element_blank(),plot.title = element_text(hjust=0.5,size=10))+ #remove axis labels and format title
+  NULL
+
+p8<- ggplot(F, aes(x=raised, y=reorder(primary_city,raised)))+ #arrange in descending order of amount raised
+  geom_col(fill='#800080')+
+  facet_wrap(~"Rubio, Marco")+
+  scale_x_continuous(labels = label_comma(prefix = "$"))+ #formatting x-axis (max, min and accounting style)
+  theme_bw() + #black outline and grey grids
+  theme(axis.title.y = element_blank(),axis.title.x = element_blank(),plot.title = element_text(hjust=0.5,size=10))+ #remove axis labels and format title
+  NULL
+
+p9<- ggplot(G, aes(x=raised, y=reorder(primary_city,raised)))+ #arrange in descending order of amount raised
+  geom_col(fill='#008080')+
+  facet_wrap(~"Sanders, Bernard")+
+  scale_x_continuous(labels = label_comma(prefix = "$"))+ #formatting x-axis (max, min and accounting style)
+  theme_bw() + #black outline and grey grids
+  theme(axis.title.y = element_blank(),axis.title.x = element_blank(),plot.title = element_text(hjust=0.5,size=10))+ #remove axis labels and format title
+  NULL
+
+patched=p1+p2+p3+p4+p5+p6+p7+p8+p9
+
+patched+
+plot_annotation(title="Where did candidates raise most money?", caption ="Amount raised",theme=theme(plot.title=element_text(hjust=0.05,size=13),plot.caption = element_text(hjust=0.5)))+theme(axis.title.y = element_blank(),axis.title.x = element_blank())
+```
+
+Voila!
+
+
+
