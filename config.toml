@@ -20,7 +20,7 @@ disqusShortname = ""
 
   # Provide your metadata here.
   name = "Katherine Lin"
-  description = "Aspiring financier, barbeque lover, now also data scientist"
+  description = "Your description"
 
   # Link custom assets relative to /static
   custom_css = []
@@ -37,8 +37,8 @@ disqusShortname = ""
 
   # Navigation Section
   [params.navigation]
-    title = "Katherine Lin"
-    subtitle = "Welcome"
+    title = "Katherine Lin's Portfolio Website"
+    subtitle = ""
     menu = "Menu"
     # Optional logo as brand stored in img/
     # logo = "logo.png"
@@ -48,7 +48,7 @@ disqusShortname = ""
       url = "#"
 
     [[params.navigation.links]]
-      name = "Portfolio"
+      name = "Blogs"
       url = "blogs"
 
     [[params.navigation.links]]
@@ -68,12 +68,12 @@ disqusShortname = ""
 
     # Button Style 1
     [[params.navigation.button1]]
-      name = "Home"
+      name = "Get Started"
       url = "blogs"
 
     # Button Style 2
     [[params.navigation.button2]]
-      name = "Portfolio"
+      name = "Log In"
       url = "blogs"
 
 
@@ -83,7 +83,7 @@ disqusShortname = ""
     # the 'static/img' folder.
     title = "Hi, my name is Katherine"
     subtitle = "MY PORTFOLIO WEBSITE RELEASED UNDER THE CREATIVE COMMONS."
-    buttonText = "GET STARTED"
+    buttonText = "Take a look"
 
 
   # Tiles Section
@@ -127,15 +127,15 @@ disqusShortname = ""
 
   # Section Type Two
   [params.two]
-    enable = true
-    title = "Massa libero"
-    subtitle = """Nullam et orci eu lorem consequat tincidunt vivamus et sagittis libero. 
-    Mauris aliquet magna magna sed nunc rhoncus pharetra. 
-    Pellentesque condimentum sem. In efficitur ligula tate urna. Maecenas laoreet massa vel lacinia pellentesque lorem ipsum dolor. 
-    Nullam et orci eu lorem consequat tincidunt. Vivamus et sagittis libero.
-    Mauris aliquet magna magna sed nunc rhoncus amet pharetra et feugiat tempus."""
-    buttonText = "Get Started"
-    url = "blogs"
+    # enable = true
+    # title = "Massa libero"
+    # subtitle = """Nullam et orci eu lorem consequat tincidunt vivamus et sagittis libero. 
+    # Mauris aliquet magna magna sed nunc rhoncus pharetra. 
+    # Pellentesque condimentum sem. In efficitur ligula tate urna. Maecenas laoreet massa vel lacinia pellentesque lorem ipsum dolor. 
+    # Nullam et orci eu lorem consequat tincidunt. Vivamus et sagittis libero.
+    # Mauris aliquet magna magna sed nunc rhoncus amet pharetra et feugiat tempus."""
+    # buttonText = "Get Started"
+    # url = "blogs"
 
 
   # Contact section
@@ -169,8 +169,8 @@ disqusShortname = ""
     phone = "Not Available"
 
     [[params.contact.address]]
-    title = "Address"
-    street = "London Business School | Regent's Park "
+    title = "London Business School"
+    street = "Regent's Park "
     city = "London NW1 4SA"
     country = "UK"
 
@@ -190,22 +190,22 @@ disqusShortname = ""
       url= "https://www.linkedin.com/in/katherine-wanying/"
       label = "LinkedIn"
 
-    [[params.footer.social]]
-      icon = "#"
-      url= "#"
-      label = "#"
+    # [[params.footer.social]]
+      # icon = ""
+      #  url= ""
+      # label = ""
     
-    [[params.footer.social]]
-      icon = "#"
-      url= "#"
-      label = "#"
+    # [[params.footer.social]]
+      # icon = ""
+      # url= ""
+      # label = ""
 
-    [[params.footer.social]]
-      icon = "#"
-      url= "#"
-      label = "#"
+    # [[params.footer.social]]
+      # icon = ""
+      # = ""
+      # label = ""
 
-    [[params.footer.quicklinks]]
-      text = ""
-      url= ""
-      alt = ""
+    # [[params.footer.quicklinks]]
+      # text = ""
+      # url= ""
+      # alt = ""
