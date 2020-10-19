@@ -115,17 +115,7 @@ disqusShortname = ""
       image = "pic04.jpg"
       url = "blogs/blog4"
 
-    [[params.tiles.showcase]]
-      title = "#"
-      subtitle = "#"
-      image = "#"
-      url = "#"
 
-    [[params.tiles.showcase]]
-      title = "#"
-      subtitle = "#"
-      image = "#"
-      url = "#"
     # You can make more showcases by copy and pasting the code above
 
   [params.blog]
@@ -216,6 +206,6 @@ disqusShortname = ""
       label = "#"
 
     [[params.footer.quicklinks]]
-      text = "#"
-      url= "#"
-      alt = "#"
+      text = ""
+      url= ""
+      alt = ""
