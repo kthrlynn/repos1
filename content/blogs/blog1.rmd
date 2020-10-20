@@ -43,7 +43,6 @@ library(infer)
 library(scales)
 library(patchwork)
 ```
-```
 
 
 We would like to produce the plot that shows the top ten cities in highest amounts raised in political contributions in California during the 2016 US Presidential election.

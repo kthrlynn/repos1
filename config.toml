@@ -98,7 +98,7 @@ disqusShortname = ""
       url = "blogs/blog1"
 
     [[params.tiles.showcase]]
-      title = "Excess rentals in TfL bike sharing"
+      title = "Excess Rentals in TfL Bike Sharing"
       subtitle = "Expected vs actual bike hires by month and week"
       image = "pic02.jpg"
       url = "blogs/blog2"
@@ -129,13 +129,13 @@ disqusShortname = ""
   [params.two]
     enable = true
     title = "About"
-    subtitle = """Here are some fun facts about me. 
+    subtitle = """ 
     Born in China and educated in the US, I have lived and worked across 5 countries.
-    Food is my biggest passion. I love hunting for hidden gems.
+    Food is my biggest passion - I love hunting for hidden gems.
     I find peace in visiting art museums. Personal record: 5 MET visits in 3 months.
     Last must not least, Go Heels!"""
-    # buttonText = "Get Started"
-    # url = "blogs"
+    buttonText = "See my work"
+    url = "blogs"
 
 
   # Contact section

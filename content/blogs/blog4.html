@@ -1,16 +1,3 @@
----
-title: "Youth Risk Behavior Surveillance"
-date: '2017-10-31T21:28:43-05:00'
-description: Analyzing health of UK High Schoolers
-draft: no
-image: pic10.jpg
-keywords: ''
-slug: blog4
-categories:
-- ''
-- ''
----
-
 
 
 <div id="youth-risk-behavior-surveillance" class="section level1">
@@ -283,19 +270,19 @@ ggplot(weight) +
   geom_histogram(aes(x= weight), fill=&quot;Dark Blue&quot;, bins=70) +
   geom_vline(aes(xintercept = mean(weight), color=&quot;red&quot;))+
   theme_bw()</code></pre>
-<p><img src="/blogs/blog4_files/figure-html/eda_on_weight-1.png" width="648" style="display: block; margin: auto;" /></p>
+<p><img src="blog4_files/figure-html/eda_on_weight-1.png" width="648" style="display: block; margin: auto;" /></p>
 <pre class="r"><code>ggplot(weight) +
   geom_histogram(aes(x= weight), fill=&quot;Dark Blue&quot;, bins=70) +
   geom_vline(aes(xintercept = mean(weight), color=&quot;red&quot;)) +
   facet_wrap(~gender)+
   theme_bw()</code></pre>
-<p><img src="/blogs/blog4_files/figure-html/eda_on_weight-2.png" width="648" style="display: block; margin: auto;" /></p>
+<p><img src="blog4_files/figure-html/eda_on_weight-2.png" width="648" style="display: block; margin: auto;" /></p>
 <pre class="r"><code>ggplot(weight) +
   geom_histogram(aes(x= weight), fill=&quot;Dark Blue&quot;, bins=70) +
   geom_vline(aes(xintercept = mean(weight), color=&quot;red&quot;)) +
   facet_wrap(~race)+
   theme_bw()</code></pre>
-<p><img src="/blogs/blog4_files/figure-html/eda_on_weight-3.png" width="648" style="display: block; margin: auto;" /></p>
+<p><img src="blog4_files/figure-html/eda_on_weight-3.png" width="648" style="display: block; margin: auto;" /></p>
 <pre class="r"><code>weight_by_gender &lt;- weight %&gt;% 
   group_by(gender) %&gt;% 
   summarize(mean(weight))
@@ -348,7 +335,7 @@ physical_CI</code></pre>
 <pre><code>## # A tibble: 1 x 2
 ##   lower_ci upper_ci
 ##      &lt;dbl&gt;    &lt;dbl&gt;
-## 1     1.12     2.43</code></pre>
+## 1     1.12     2.42</code></pre>
 <p>This confidence interval shows that we can be 95% sure that our population mean for people not being active 3 or more days per week falls between [mean - 1.12; mean + 2.43]. In this case, with the average weight being 67.9 (calculated in dataset weight), we can thus be 95% sure that our mean falls between [66,78;70.33].</p>
 <p>Then we a boxplot of <code>physical_3plus</code> vs. <code>weight</code>.</p>
 <pre class="r"><code>physical &lt;- yrbss %&gt;% 
@@ -358,7 +345,7 @@ physical_CI</code></pre>
   theme_bw()
 
 physical</code></pre>
-<p><img src="/blogs/blog4_files/figure-html/boxplot-1.png" width="648" style="display: block; margin: auto;" />
+<p><img src="blog4_files/figure-html/boxplot-1.png" width="648" style="display: block; margin: auto;" />
 Comparing the two boxplots, we get an answer that seems a little counter-intuitive. Visually speaking, it looks like people who do activity at least three times per week are a little heavier. Reasons for this could be that muscles weight more than fat or that the people who move at least three times a week need the activity to lose weight. Nevertheless, as there is an overlap between the boxes, there is a chance that the population mean is indeed higher for people not being active at least 3 times a week.</p>
 </div>
 <div id="confidence-interval" class="section level2">
@@ -409,7 +396,7 @@ A &lt;- t.test(weight ~ physical_3plus, data = yrbss)</code></pre>
 obs_diff %&gt;% 
   visualize() +
   theme_bw()</code></pre>
-<p><img src="/blogs/blog4_files/figure-html/unnamed-chunk-6-1.png" width="648" style="display: block; margin: auto;" /></p>
+<p><img src="blog4_files/figure-html/unnamed-chunk-6-1.png" width="648" style="display: block; margin: auto;" /></p>
 <pre class="r"><code>obs_diff %&gt;% 
   get_p_value(obs_stat= obs_diff,
               direction= &quot;both&quot;)</code></pre>
@@ -429,12 +416,12 @@ obs_diff %&gt;%
 <pre class="r"><code>ggplot(data = null_dist, aes(x = stat, color= &quot;dark blue&quot;)) +
   geom_histogram() +
   theme_bw()</code></pre>
-<p><img src="/blogs/blog4_files/figure-html/unnamed-chunk-8-1.png" width="648" style="display: block; margin: auto;" /></p>
+<p><img src="blog4_files/figure-html/unnamed-chunk-8-1.png" width="648" style="display: block; margin: auto;" /></p>
 <p>We can also calculate the p-value for your hypothesis test using the function <code>infer::get_p_value()</code>.</p>
 <pre class="r"><code>null_dist %&gt;% visualize() +
   theme_bw()+
   shade_p_value(obs_stat = obs_diff, direction = &quot;two-sided&quot;)</code></pre>
-<p><img src="/blogs/blog4_files/figure-html/unnamed-chunk-9-1.png" width="648" style="display: block; margin: auto;" /></p>
+<p><img src="blog4_files/figure-html/unnamed-chunk-9-1.png" width="648" style="display: block; margin: auto;" /></p>
 <pre class="r"><code>null_dist %&gt;%
   get_p_value(obs_stat = obs_diff, direction = &quot;two_sided&quot;)</code></pre>
 <pre><code>## # A tibble: 1 x 1

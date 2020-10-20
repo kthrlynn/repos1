@@ -13,19 +13,10 @@ categories:
 
 
 
-<pre><code>
-
-We would like to produce the plot that shows the top ten cities in highest amounts raised in political contributions in California during the 2016 US Presidential election.
-
-To get this plot, we must join two dataframes; the one you have with all contributions, and data that can translate zipcodes to cities. We can find a file with all US zipcodes, e.g., here http://www.uszipcodelist.com/download.html.
-
-
-Let&#39;s first looks at the data.
-
-
-
-```r
-CA_contributors_2016 &lt;- vroom::vroom(here::here(&quot;data&quot;,&quot;CA_contributors_2016.csv&quot;))
+<p>We would like to produce the plot that shows the top ten cities in highest amounts raised in political contributions in California during the 2016 US Presidential election.</p>
+<p>To get this plot, we must join two dataframes; the one you have with all contributions, and data that can translate zipcodes to cities. We can find a file with all US zipcodes, e.g., here <a href="http://www.uszipcodelist.com/download.html" class="uri">http://www.uszipcodelist.com/download.html</a>.</p>
+<p>Let’s first looks at the data.</p>
+<pre class="r"><code>CA_contributors_2016 &lt;- vroom::vroom(here::here(&quot;data&quot;,&quot;CA_contributors_2016.csv&quot;))
 glimpse(CA_contributors_2016)</code></pre>
 <pre><code>## Rows: 1,292,843
 ## Columns: 4

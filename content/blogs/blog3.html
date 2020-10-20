@@ -13,19 +13,10 @@ categories:
 
 
 
-<pre><code>
-
-
-At the last board meeting of Omega Group Plc., the headquarters of a large multinational company, the issue was raised that women were being discriminated in the company, in the sense that the salaries were not the same for male and female executives. A quick analysis of a sample of 50 employees (of which 24 men and 26 women) revealed that the average salary for men was about 8,700 higher than for women. This seemed like a considerable difference, so it was decided that a further analysis of the company salaries was warranted. 
-
-I then carry out the analysis to find out whether there is indeed a significant difference between the salaries of men and women, and whether the difference is due to discrimination or whether it is based on another, possibly valid, determining factor. 
-
-First, we load the data.
-
-
-
-```r
-omega &lt;- read_csv(here::here(&quot;data&quot;, &quot;omega.csv&quot;))
+<p>At the last board meeting of Omega Group Plc., the headquarters of a large multinational company, the issue was raised that women were being discriminated in the company, in the sense that the salaries were not the same for male and female executives. A quick analysis of a sample of 50 employees (of which 24 men and 26 women) revealed that the average salary for men was about 8,700 higher than for women. This seemed like a considerable difference, so it was decided that a further analysis of the company salaries was warranted.</p>
+<p>I then carry out the analysis to find out whether there is indeed a significant difference between the salaries of men and women, and whether the difference is due to discrimination or whether it is based on another, possibly valid, determining factor.</p>
+<p>First, we load the data.</p>
+<pre class="r"><code>omega &lt;- read_csv(here::here(&quot;data&quot;, &quot;omega.csv&quot;))
 glimpse(omega) # examine the data frame</code></pre>
 <pre><code>## Rows: 50
 ## Columns: 3
@@ -176,8 +167,7 @@ dif_experience %&gt;%
 <pre><code>## NULL</code></pre>
 <p>Last, we check correlation between the data.</p>
 <p>I also used <code>GGally:ggpairs()</code> to create a scatterplot and correlation matrix. Essentially, I changed the order variables will appear in and have the dependent variable (Y), salary, as last in our list. I then pipe the dataframe to <code>ggpairs()</code> with <code>aes</code> arguments to colour by <code>gender</code> and make ths plots somewhat transparent (<code>alpha  = 0.3</code>).</p>
-<pre class="r"><code>library(GGally)
-omega %&gt;% 
+<pre class="r"><code>omega %&gt;% 
   select(gender, experience, salary) %&gt;% #order variables they will appear in ggpairs()
   ggpairs(aes(colour=gender, alpha = 0.3))+
   theme_bw()</code></pre>
