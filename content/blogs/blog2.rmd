@@ -139,7 +139,6 @@ plot(plot1)
 The second one looks at percentage changes from the expected level of weekly rentals. The two grey shaded rectangles correspond to the second (weeks 14-26) and fourth (weeks 40-52) quarters.
 
 ```{r tfl_percent_change, out.width="100%"}
-knitr::include_graphics(here::here("images", "tfl_weekly.png"), error = FALSE)
 
 #calculate the actual weekly return 
 actual_weekly<-bike %>% 
