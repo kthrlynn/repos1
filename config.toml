@@ -67,14 +67,14 @@ disqusShortname = ""
     #    url = "UrlOfLink"
 
     # Button Style 1
-    [[params.navigation.button1]]
-      name = "Get Started"
-      url = "blogs"
+    # [[params.navigation.button1]]
+      # name = "Get Started"
+      # url = "blogs"
 
     # Button Style 2
-    [[params.navigation.button2]]
-      name = "Log In"
-      url = "blogs"
+   # [[params.navigation.button2]]
+     # name = "Log In"
+    #  url = "blogs"
 
 
   # Banner section
@@ -127,13 +127,13 @@ disqusShortname = ""
 
   # Section Type Two
   [params.two]
-    # enable = true
-    # title = "Massa libero"
-    # subtitle = """Nullam et orci eu lorem consequat tincidunt vivamus et sagittis libero. 
-    # Mauris aliquet magna magna sed nunc rhoncus pharetra. 
-    # Pellentesque condimentum sem. In efficitur ligula tate urna. Maecenas laoreet massa vel lacinia pellentesque lorem ipsum dolor. 
-    # Nullam et orci eu lorem consequat tincidunt. Vivamus et sagittis libero.
-    # Mauris aliquet magna magna sed nunc rhoncus amet pharetra et feugiat tempus."""
+    enable = true
+    title = "About"
+    subtitle = """Here are some fun facts about me. 
+    Born in China and educated in the US, I have lived and worked across 5 countries.
+    Food is my biggest passion. I love hunting for hidden gems.
+    I find peace in visiting art museums. Personal record: 5 MET visits in 3 months.
+    Last must not least, Go Heels!"""
     # buttonText = "Get Started"
     # url = "blogs"
 
@@ -166,7 +166,7 @@ disqusShortname = ""
 
     [[params.contact.phone]]
     title = "Phone"
-    phone = "Not Available"
+    phone = "(347) 891 2275"
 
     [[params.contact.address]]
     title = "London Business School"
