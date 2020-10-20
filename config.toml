@@ -133,7 +133,8 @@ disqusShortname = ""
     Born in China and educated in the US, I have lived and worked across 5 countries.
     Food is my biggest passion - I love hunting for hidden gems.
     I find peace in visiting art museums. Personal record: 5 MET visits in 3 months.
-    Last must not least, Go Heels!"""
+    Last but not least, Go Heels!"""
+    
     buttonText = "See my work"
     url = "blogs"
 
