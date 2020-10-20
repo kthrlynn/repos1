@@ -51,13 +51,13 @@ disqusShortname = ""
       name = "Blogs"
       url = "blogs"
 
-    [[params.navigation.links]]
-      name = "#"
-      url = "#"
+   # [[params.navigation.links]]
+   #   name = ""
+    #  url = ""
 
-    [[params.navigation.links]]
-      name = "#"
-      url = "#"
+  #  [[params.navigation.links]]
+   #   name = ""
+    #  url = ""
 
     # Add custom links here by uncommenting code below. To remove links just delete
     # the [[params.navigation.links]] map associated with that link. Copy and paste
