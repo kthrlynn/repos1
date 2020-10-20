@@ -12,7 +12,7 @@ categories:
 ---
 
 
-```{r, setup, include=FALSE}
+```{r, setup, echo=FALSE}
 knitr::opts_chunk$set(
   message = FALSE, 
   warning = FALSE, 
@@ -29,18 +29,20 @@ knitr::opts_chunk$set(
 ```
 
 
-```{r load-libraries, include=FALSE}
+```{r load-libraries, echo=FALSE}
 library(tidyverse)  # Load ggplot2, dplyr, and all the other tidyverse packages
 library(mosaic)
 library(ggthemes)
-library(lubridate)
+library(GGally)
+library(readxl)
 library(here)
 library(skimr)
 library(janitor)
-library(httr)
-library(readxl)
-library(vroom)
+library(broom)
+library(tidyquant)
 library(infer)
+library(openintro)
+library(tidyquant)
 ```
 ```
 
@@ -188,7 +190,6 @@ Last, we check correlation between the data.
 I also used `GGally:ggpairs()` to create a scatterplot and correlation matrix. Essentially, I changed the order variables will appear in and have the dependent variable (Y), salary, as last in our list. I then pipe the dataframe to `ggpairs()` with `aes` arguments to colour by `gender` and make ths plots somewhat transparent (`alpha  = 0.3`).
 
 ```{r, ggpairs}
-library(GGally)
 omega %>% 
   select(gender, experience, salary) %>% #order variables they will appear in ggpairs()
   ggpairs(aes(colour=gender, alpha = 0.3))+

@@ -1,18 +1,18 @@
 ---
-categories:
-- ""
-- ""
-date: "2017-10-31T21:28:43-05:00"
-description: Analyzing health of UK High Schoolers
-draft: false
-image: pic10.jpg
-keywords: ""
-slug: blog4
 title: "Youth Risk Behavior Surveillance"
+date: '2017-10-31T21:28:43-05:00'
+description: Analyzing health of UK High Schoolers
+draft: no
+image: pic10.jpg
+keywords: ''
+slug: blog4
+categories:
+- ''
+- ''
 ---
 
 
-```{r, setup, include=FALSE}
+```{r, setup, echo=FALSE}
 knitr::opts_chunk$set(
   message = FALSE, 
   warning = FALSE, 
@@ -29,27 +29,35 @@ knitr::opts_chunk$set(
 ```
 
 
-```{r load-libraries, include=FALSE}
+```{r load-libraries, echo=FALSE}
 library(tidyverse)  # Load ggplot2, dplyr, and all the other tidyverse packages
 library(mosaic)
 library(ggthemes)
-library(lubridate)
+library(GGally)
+library(readxl)
 library(here)
 library(skimr)
 library(janitor)
-library(httr)
-library(readxl)
-library(vroom)
+library(broom)
+library(tidyquant)
 library(infer)
+library(openintro)
+library(tidyquant)
 ```
-```
 
 
-Every two years, the Centers for Disease Control and Prevention conduct the [Youth Risk Behavior Surveillance System (YRBSS)](https://www.cdc.gov/healthyyouth/data/yrbs/index.htm) survey, where it takes data from high schoolers (9th through 12th grade), to analyze health patterns. Here we will work with a selected group of variables from a random sample of observations during one of the years the YRBSS was conducted.
+# Youth Risk Behavior Surveillance
 
-First, we load the data.
+Every two years, the Centers for Disease Control and Prevention conduct the [Youth Risk Behavior Surveillance System (YRBSS)](https://www.cdc.gov/healthyyouth/data/yrbs/index.htm) survey, where it takes data from high schoolers (9th through 12th grade), to analyze health patterns. You will work with a selected group of variables from a random sample of observations during one of the years the YRBSS was conducted.
+
+## Load the data
+
+This data is part of the `openintro` textbook and we can load and inspect it. There are observations on 13 different variables, some categorical and some numerical. The meaning of each variable can be found by bringing up the help file:
+
+?yrbss
 
 ```{r}
+?yrbss
 data(yrbss)
 glimpse(yrbss)
 
@@ -60,8 +68,6 @@ skim(yrbss)
 ## Exploratory Data Analysis
 
 We first start with analyzing the `weight` of participants in kilograms. Using visualization and summary statistics, describe the distribution of weights. 
-
-
 
 ```{r, eda_on_weight}
 
