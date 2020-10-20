@@ -1,6 +1,14 @@
 ---
 title: "Top 10 Contributing Californian Cities in 2016 Election"
-output: html_document
+date: '2017-10-31T21:28:43-05:00'
+description: Investigating gender pay gap exist at Omega Group
+draft: no
+image: pic07.jpg
+keywords: ''
+slug: blog1
+categories:
+- ''
+- ''
 ---
 
 ```{r, setup, include=FALSE}

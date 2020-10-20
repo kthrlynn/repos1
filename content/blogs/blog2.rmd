@@ -1,9 +1,9 @@
 ---
-title: Excess rentals in TfL bike sharing
+title: "Excess rentals in TfL bike sharing"
 date: '2017-10-31T21:28:43-05:00'
 description: Analyzing expected and actual bike use in London
 draft: no
-image: pic05.jpg
+image: pic08.jpg
 keywords: ''
 slug: blog2
 categories:

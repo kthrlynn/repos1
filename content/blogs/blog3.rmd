@@ -3,7 +3,7 @@ title: "Pay Discrimination"
 date: '2017-10-31T21:28:43-05:00'
 description: Investigating gender pay gap exist at Omega Group
 draft: no
-image: pic02.jpg
+image: pic09.jpg
 keywords: ''
 slug: blog3
 categories:
