@@ -110,6 +110,7 @@ patch=p1+p2 #put p1 and p2 together
 
 #format joined plot - title on top centered and caption at the bottom centered
 patch+plot_annotation(title="Where did candidates raise most money?", caption ="Amount raised",theme=theme(plot.title=element_text(hjust=0.25,size=13),plot.caption = element_text(hjust=0.5)))
+
 ```
 
 Now, let's find out about the top 10 candidates and present them together.
@@ -218,6 +219,7 @@ patched=p1+p2+p3+p4+p5+p6+p7+p8+p9
 
 patched+
 plot_annotation(title="Where did candidates raise most money?", caption ="Amount raised",theme=theme(plot.title=element_text(hjust=0.05,size=13),plot.caption = element_text(hjust=0.5)))+theme(axis.title.y = element_blank(),axis.title.x = element_blank())
+
 ```
 
 Voila!
