@@ -1,6 +1,14 @@
 ---
 title: "Pay Discrimination"
-output: html_document
+date: '2017-10-31T21:28:43-05:00'
+description: Investigating gender pay gap exist at Omega Group
+draft: no
+image: pic02.jpg
+keywords: ''
+slug: blog3
+categories:
+- ''
+- ''
 ---
 
 
@@ -180,6 +188,7 @@ Last, we check correlation between the data.
 I also used `GGally:ggpairs()` to create a scatterplot and correlation matrix. Essentially, I changed the order variables will appear in and have the dependent variable (Y), salary, as last in our list. I then pipe the dataframe to `ggpairs()` with `aes` arguments to colour by `gender` and make ths plots somewhat transparent (`alpha  = 0.3`).
 
 ```{r, ggpairs}
+library(GGally)
 omega %>% 
   select(gender, experience, salary) %>% #order variables they will appear in ggpairs()
   ggpairs(aes(colour=gender, alpha = 0.3))+

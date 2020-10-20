@@ -1,6 +1,14 @@
 ---
-title: "Youth Risk Behavior Surveillance"
-output: html_document
+categories:
+- ""
+- ""
+date: "2017-10-31T21:28:43-05:00"
+description: Analyzing health of UK High Schoolers
+draft: false
+image: pic02.jpg
+keywords: ""
+slug: blog4
+title: Youth Risk Behavior Surveillance
 ---
 
 

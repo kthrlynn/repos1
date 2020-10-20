@@ -1,6 +1,14 @@
 ---
-title: "Excess rentals in TfL bike sharing"
-output: html_document
+title: Excess rentals in TfL bike sharing
+date: '2017-10-31T21:28:43-05:00'
+description: Analyzing expected and actual bike use in London
+draft: no
+image: pic05.jpg
+keywords: ''
+slug: blog2
+categories:
+- ''
+- ''
 ---
 
 
@@ -74,9 +82,11 @@ There is a greater standard deviation in bike rentals as they are more spread ou
 
 Next, we reproduce the following two graphs.
 
-```{r tfl_absolute_monthly_change, out.width="100%"}
+```{r load_image, out.width="100%"}
 knitr::include_graphics(here::here("images", "tfl_monthly.png"), error = FALSE)
+```
 
+```{r tfl_absolute_monthly_change, out.width="100%"}
 #calculate the actual monthly return 
 actual_monthly<-bike %>% 
                 filter(year>=2015) %>% 
@@ -196,6 +206,7 @@ plot(plot2)
 ```
 
 We should use the median to calculate the expected rentals, because the calculation of the median is less impacted by outliers compared to the calculation of the mean and thus a more stable value for describing the expected levels across the time periods, where levels across years fluctuate quite a bit (e.g. significant changes in bike rentals in 2020 due to the pandemic). 
+
 Voila!
 
 
