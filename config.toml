@@ -99,7 +99,7 @@ disqusShortname = ""
 
     [[params.tiles.showcase]]
       title = "Excess rentals in TfL bike sharing"
-      subtitle = "#"
+      subtitle = "Expected vs actual bike hires by month and week"
       image = "pic02.jpg"
       url = "blogs/blog2"
 
